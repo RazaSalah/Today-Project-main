@@ -1,0 +1,150 @@
+*{
+	font-family: 'Jost';
+	list-style: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+.bg-purple {
+    color: white!important;
+    background: linear-gradient(135deg , rgb(167, 161, 189), #514a58)!important;
+  }
+  
+  .bg-pink {
+    border-color: #da4167!important;
+    background: linear-gradient(227deg, rgb(202, 183, 214) 0%, rgb(150, 105, 180) 100%)!important;
+    color: white!important;
+  }
+
+
+ .logo{
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #c99c33;
+}
+
+ .logo span{
+	color: rgb(223, 204, 235);
+}
+
+ .social{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    padding-bottom: 0px;
+   
+  }
+  .social a{
+    font-size: 22px;
+    width: 45px;
+    height: 45px;
+    line-height: 39px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid;
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.4);
+    margin: 10px;
+    color: #fff;
+    opacity: 0.7;
+    transition: 0.3s ease-in-out;
+  }
+   .social a:hover{
+    opacity: 0.9;
+    box-shadow: 0px 1px 3px 2px rgba(255, 255, 255, 0.9);
+  }
+   .copyright{
+    text-align: center;
+    padding-top: 24px;
+    font-weight: 500;
+    opacity: 0.8;
+    font-size: 16px;
+  }
+  .con-back
+  {
+      
+      justify-content: flex-end;
+      align-items: center;
+      background: #222;
+    
+  }
+  .card{
+    
+    background: #000000d0;
+    color: white;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    margin: 1em;
+    background-image: url('https://source.unsplash.com/900x900/?landscape');
+
+  }
+
+  
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+button {
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background: #000000d0;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  input.search-bar {
+    border: none;
+    outline: none;
+    margin-bottom: 10px;
+    padding: 0.4em 1em;
+    border-radius: 24px;
+    background: #000000d0;
+    color: white;
+    font-family: inherit;
+    font-size: 105%;
+    width: calc(100% - 100px);
+  }
+  
+  button:hover {
+    background: #7c7c7c6b;
+  }
+  h1.temp {
+    margin: 0;
+    margin-bottom: 0.4em;
+  }
+  
+  
+  
+  .description {
+    text-transform: capitalize;
+    margin-left: 8px;
+  }
+  
+  .weather.loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+  }
+  
+  .weather.loading:after {
+    visibility: visible;
+    content: "Loading...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 20px;
+  }  

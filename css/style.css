@@ -70,6 +70,7 @@
       justify-content: flex-end;
       align-items: center;
       background: #222;
+      background-image: url('https://source.unsplash.com/1800x800/?landscape');
     
   }
   .card{
@@ -81,7 +82,7 @@
     width: 100%;
     max-width: 420px;
     margin: 1em;
-    background-image: url('https://source.unsplash.com/900x900/?landscape');
+    
 
   }
 
@@ -93,14 +94,14 @@
   }
 
   
-button {
+  .search-button {
     margin: 0.5em;
     border-radius: 50%;
     border: none;
     height: 44px;
     width: 44px;
     outline: none;
-    background: #000000d0;
+    background: #7c7c7c2b;
     color: white;
     cursor: pointer;
     transition: 0.2s ease-in-out;
@@ -112,7 +113,7 @@ button {
     margin-bottom: 10px;
     padding: 0.4em 1em;
     border-radius: 24px;
-    background: #000000d0;
+     background: #7c7c7c2b;
     color: white;
     font-family: inherit;
     font-size: 105%;
@@ -148,3 +149,20 @@ button {
     top: 0;
     left: 20px;
   }  
+
+  #news-title{
+    font-weight:bold;
+    color:rgb(150, 105, 180);
+  }
+
+  #news-search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  #news-search-bar {
+    color: black;
+    
+  }
+  

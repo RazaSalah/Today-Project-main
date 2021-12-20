@@ -57,7 +57,7 @@
       </div>
     </nav>
 
-    <div class="container-fluid d-flex justify-content-end">
+    <div class="container-fluid d-flex con-back">
       <div class="card">
         <div class="search">
           <input type="text" class="search-bar" placeholder="Search" />
@@ -83,8 +83,23 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-md-3 ms-auto my-3">
+        <div class="search" id="news-search">
+          <input type="text" class="search-bar" placeholder="Search" id="news-search-bar"/>
+          <button type="submit" class="search-button" id="news-submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+       
+      </div>
+    </div>
+    <div class="container mt-5 mb-5" id="productCard">
+    </div>
+    
+
     <!-- footer -->
-    <footer class="footer mt-auto py-3 bg-purple fixed-bottom">
+    <footer class="footer mt-auto py-3 bg-purple">
       <div class="container-fluid">
         <div class="social">
           <h6>Follow us</h6>

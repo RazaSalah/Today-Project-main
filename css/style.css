@@ -20,16 +20,17 @@
   }
 
 
- .logo{
+.logo{
 	font-size: 24px;
 	font-weight: 700;
 	text-transform: uppercase;
-	color: #c99c33;
+	color: #fff;
 }
 
- .logo span{
+.logo span{
 	color: rgb(223, 204, 235);
 }
+
 
  .social{
     width: 100%;
@@ -165,4 +166,36 @@
     color: black;
     
   }
+  .categorise{
+    padding: 15px 10px 10px;
+    display: grid;
+    grid-auto-flow: column;
+    overflow-y: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+  }
+
+  .categorise > div{
+    padding: 10px 20px;
+    background: #ddd;
+    color: #111;
+   border-radius: 20px;
+   text-align: center;
+   cursor:pointer;
+  }
+  .categorise::-webkit-scrollbar{
+    display: none;
+  }
+
+  .categorise > div.active{
+    background:rgb(150, 105, 180);
+    color: white;
+   
+  }
+
+
+  
+
+
   

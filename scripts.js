@@ -51,7 +51,7 @@ weather.fetchWeather("Dammam")
 
 
 const APINews ="5a81862cb1fd44e9abafb1890b7e2ce9"
-    fetch( "https://newsapi.org/v2/everything?q=all&from=2021-12-20&sortBy=popularity&apiKey=5a81862cb1fd44e9abafb1890b7e2ce9")
+    fetch( "https://newsapi.org/v2/everything?q=all&from=2021-12-20&sortBy=popularity&page=1&limit=5&apiKey=5a81862cb1fd44e9abafb1890b7e2ce9")
 
       .then((response) => response.json())
       .then((data) => this.displayNews(data.articles));
@@ -63,7 +63,7 @@ const APINews ="5a81862cb1fd44e9abafb1890b7e2ce9"
   
     const productCard = `
     <div class="d-flex justify-content-center row mb-5">
-    <div class="col-md-10">
+    <div class="col-md-10 ">
         <div class="row p-2 bg-white border rounded"> 
             <div class="col-md-3 mt-1">
                <img id="news-img"class="img-fluid img-responsive rounded product-image" src="${data[i].urlToImage}"> 
@@ -106,5 +106,30 @@ document.querySelector("#news-search-bar").addEventListener("keyup" , function(e
 
 });
 
+let category =["General", "Business" , "Technology" , "Entertainment", "Health" , "Science","Sports"];
+const newsCategory = document.querySelector(".categorise");
 
+for( let i =0 ; i < category.length ; i++){
+  let div = document.createElement("div");
+  div.innerText = category[i];
+  div.addEventListener("click" , function(){
+    // newsCategory.classList.remove("active");
+    // div.classList.add("active");
+     fetchCategoryNews(category[i]);
+  });
+  if(i == 0 ){
+    // div.classList.add("active");
+    fetchCategoryNews(category[i])
+  }
+  newsCategory.appendChild(div);
 
+}
+
+async function fetchCategoryNews(category){
+
+  productCard.innerHTML = ``  
+  let url = `https://newsapi.org/v2/everything?q=${category}&from=2021-12-20&sortBy=popularity&apiKey=${APINews}`
+    fetch(url).then((response) => response.json())
+    .then((data) => displayNews(data.articles));
+
+}

@@ -63,13 +63,13 @@ for( let i =0 ; i < category.length ; i++){
   let div = document.createElement("div");
   div.innerText = category[i];
   div.addEventListener("click" , function(){
-    newsCategory.classList.remove("active");
-    div.classList.add("active");
-     fetchNews(category[i]);
+    // newsCategory.classList.remove("active");
+    // div.classList.add("active");
+     fetchCategoryNews(category[i]);
   });
   if(i == 0 ){
-    div.classList.add("active");
-   fetchNews(category[i])
+    // div.classList.add("active");
+   fetchCategoryNews(category[i])
   }
   newsCategory.appendChild(div);
 
@@ -113,15 +113,18 @@ function fetchNews(category){
   })
 }
 
-// async function fetchCategoryNews(category){
+async function fetchCategoryNews(category){
 
-//   productCard.innerHTML = ``  
-//   let url = `https://newsapi.org/v2/everything?q=${category}&from=2021-12-20&language=en&
-//   sortBy=popularity&page=${page}
-//   &pageSize=${pageSize}&apiKey=${APINews}`
   
-//     fetch(url).then((response) => response.json())
-//     .then((data) => displayNews(data.articles));}
+  productCard.innerHTML = ``  
+  fetchNews(category)
+  // let url = `https://newsapi.org/v2/everything?q=${category}&from=2021-12-20&language=en&
+  // sortBy=popularity&page=${page}
+  // &pageSize=${pageSize}&apiKey=${APINews}`
+  
+  //   fetch(url).then((response) => response.json())
+  //   .then((data) => fetchNews(data.articles));
+}
 
   
 function retrieve(){
@@ -164,4 +167,3 @@ next.addEventListener("click", function(){
 //   }
   
 //  })
-

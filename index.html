@@ -49,11 +49,18 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ms-auto my-3 mx-3 my-lg-0 fs-5">
-            <a class="nav-link" href="#">Weather</a>
-            <a class="nav-link" href="#">News</a>
-            <a class="nav-link" href="#">About</a>
+          <div class="navbar-nav ms-auto mx-3 fs-5">
+              <div class="search" id="news-search">
+                <input type="text" class="search-bar" placeholder="Search for News" id="news-search-bar"/>
+                <button type="submit" class="search-button" id="news-submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            
+            <a class="nav-link my-3" href="#weatherCard">Weather</a>
+            <a class="nav-link my-3" href="#productCard">News</a>
           </div>
         </div>
       </div>
@@ -63,7 +70,7 @@
       <div class="text">
         <h4></h4>
       </div>
-      <div class="card">
+      <div class="card" id="weatherCard">
         <div class="search">
           <input type="text" class="search-bar" placeholder="Search" />
           <button type="submit" class="search-button">
@@ -89,28 +96,15 @@
     </div>
 
     
-    <div class="categorise"></div>
-
-    <div class="row justify-content-center align-items-center">
-      <div class="col-md-5 my-3 ">
-        <div class="search" id="news-search">
-          <input type="text" class="search-bar" placeholder="Search for News" id="news-search-bar"/>
-          <button type="submit" class="search-button" id="news-submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-       
-      </div>
-    </div>
- 
+    <div class="categorise" id="newsCategory"></div>
 
     <div class="container mt-5 mb-5" id="productCard">
     </div>
 
    <div class="pagination">
-     
-     <button class="page" id="prev">Previous Page</button>
-     <button class="page next" id="next">Next Page</button>
+
+     <!-- <button class="page" id="prev">Previous Page</button> -->
+     <button class="page next" id="next">Load More..</button>
 
    </div>
     

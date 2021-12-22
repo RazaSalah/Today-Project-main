@@ -53,11 +53,10 @@ weather.fetchWeather("Dammam")
 let category =["General", "Business" , "Technology" , "Entertainment", "Health" , "Science","Sports"];
 const newsCategory = document.querySelector(".categorise");
 const APINews ="5a81862cb1fd44e9abafb1890b7e2ce9";
-const prev =document.querySelector("#prev");
 const next =document.querySelector("#next");
 
 let page = 1;
-let pageSize=10;
+
 
 for( let i =0 ; i < category.length ; i++){
   let div = document.createElement("div");
@@ -77,9 +76,8 @@ for( let i =0 ; i < category.length ; i++){
 
 function fetchNews(category){
   
-    fetch( `https://newsapi.org/v2/everything?q=${category}&from=2021-12-20&language=en&
-    sortBy=popularity&page=${page}
-    &pageSize=${pageSize}&apiKey=${APINews}`)
+    fetch( `https://newsapi.org/v2/everything?q=${category}&from=2021-12&language=en&
+    sortBy=popularity&page=${page}&apiKey=${APINews}`)
 
       .then((response) => response.json())
       .then((data) => this.displayNews(data.articles));
@@ -153,7 +151,7 @@ document.querySelector("#news-search-bar").addEventListener("keyup" , function(e
 
 next.addEventListener("click", function(){
  page++;
-
+ productCard.innerHTML = ``  
  fetchNews();
 
 })

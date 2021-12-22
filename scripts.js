@@ -49,10 +49,23 @@ document.querySelector(".search-bar").addEventListener("keyup" , function(event)
 
 weather.fetchWeather("Dammam")
 
+const quotes = document.querySelector(".quotes");
+const auther = document.querySelector(".auther");
+var quotesUrl="https://api.quotable.io/random";
+
+let getQuote= () =>{
+  fetch(quotesUrl).then((data)=>data.json())
+  .then((item) =>{
+    quotes.innerHTML =`<i class="fas fa-quote-left text-black"></i>` + ` `+  item.content +` ` +` <i class="fas fa-quote-right text-black"></i>`;
+    auther.innerHTML = item.author;
+  });
+};
+window.addEventListener("load" , getQuote);
+
 
 let category =["General", "Business" , "Technology" , "Entertainment", "Health" , "Science","Sports"];
 const newsCategory = document.querySelector(".categorise");
-const APINews ="5a81862cb1fd44e9abafb1890b7e2ce9";
+const APINews ="d1c7a9fd79da40bba56612495a19186f";
 const next =document.querySelector("#next");
 
 let page = 1;

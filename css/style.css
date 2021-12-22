@@ -42,7 +42,7 @@ justify-content:left;
 }
 .text p{
   font-size:20px;
-  color:white;
+  color:whitesmoke;
   margin-top:20px;
 }
  .social{
@@ -77,6 +77,14 @@ justify-content:left;
     font-weight: 500;
     opacity: 0.8;
     font-size: 16px;
+  }
+
+  .auther{
+    margin: 5px;
+    text-align: right;
+    font-size: 16px;
+    font-style: italic;
+    
   }
   .con-back
   {

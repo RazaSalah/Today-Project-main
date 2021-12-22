@@ -50,14 +50,44 @@ document.querySelector(".search-bar").addEventListener("keyup" , function(event)
 weather.fetchWeather("Dammam")
 
 
-const APINews ="5a81862cb1fd44e9abafb1890b7e2ce9"
-    fetch( "https://newsapi.org/v2/everything?q=all&from=2021-12-20&sortBy=popularity&page=1&limit=5&apiKey=5a81862cb1fd44e9abafb1890b7e2ce9")
+let category =["General", "Business" , "Technology" , "Entertainment", "Health" , "Science","Sports"];
+const newsCategory = document.querySelector(".categorise");
+const APINews ="d4220aa65a524ac8b873436309990284";
+const prev =document.querySelector("#prev");
+const next =document.querySelector("#next");
+
+let page = 1;
+let pageSize=10;
+
+for( let i =0 ; i < category.length ; i++){
+  let div = document.createElement("div");
+  div.innerText = category[i];
+  div.addEventListener("click" , function(){
+    newsCategory.classList.remove("active");
+    div.classList.add("active");
+     fetchNews(category[i]);
+  });
+  if(i == 0 ){
+    div.classList.add("active");
+   fetchNews(category[i])
+  }
+  newsCategory.appendChild(div);
+
+}
+
+function fetchNews(category){
+  
+    fetch( `https://newsapi.org/v2/everything?q=${category}&from=2021-12-20&language=en&
+    sortBy=popularity&page=${page}
+    &pageSize=${pageSize}&apiKey=${APINews}`)
 
       .then((response) => response.json())
       .then((data) => this.displayNews(data.articles));
+}
+
   
   function displayNews(data) {
-    data.map((productsValue , i) =>{
+    data.map((NewsValue , i) =>{
     const productBox = document.querySelector("#productCard")
     const card = document.createElement("div"); 
   
@@ -82,6 +112,17 @@ const APINews ="5a81862cb1fd44e9abafb1890b7e2ce9"
          productBox.appendChild(card)
   })
 }
+
+// async function fetchCategoryNews(category){
+
+//   productCard.innerHTML = ``  
+//   let url = `https://newsapi.org/v2/everything?q=${category}&from=2021-12-20&language=en&
+//   sortBy=popularity&page=${page}
+//   &pageSize=${pageSize}&apiKey=${APINews}`
+  
+//     fetch(url).then((response) => response.json())
+//     .then((data) => displayNews(data.articles));}
+
   
 function retrieve(){
   const searchForm = document.querySelector("#news-search-bar").value;
@@ -106,30 +147,21 @@ document.querySelector("#news-search-bar").addEventListener("keyup" , function(e
 
 });
 
-let category =["General", "Business" , "Technology" , "Entertainment", "Health" , "Science","Sports"];
-const newsCategory = document.querySelector(".categorise");
 
-for( let i =0 ; i < category.length ; i++){
-  let div = document.createElement("div");
-  div.innerText = category[i];
-  div.addEventListener("click" , function(){
-    // newsCategory.classList.remove("active");
-    // div.classList.add("active");
-     fetchCategoryNews(category[i]);
-  });
-  if(i == 0 ){
-    // div.classList.add("active");
-    fetchCategoryNews(category[i])
-  }
-  newsCategory.appendChild(div);
+next.addEventListener("click", function(){
+ page++;
 
-}
+ fetchNews();
 
-async function fetchCategoryNews(category){
+})
 
-  productCard.innerHTML = ``  
-  let url = `https://newsapi.org/v2/everything?q=${category}&from=2021-12-20&sortBy=popularity&apiKey=${APINews}`
-    fetch(url).then((response) => response.json())
-    .then((data) => displayNews(data.articles));
 
-}
+// prev.addEventListener("click", function(){
+//   if(page!=1){
+//     page--;
+
+//    fetchNews();
+//   }
+  
+//  })
+

@@ -27,6 +27,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
     />
+
+    <!-- pagination buttons -->
     <!-- css sheet -->
     <link rel="stylesheet" href="/css/style.css" />
   </head>
@@ -86,12 +88,11 @@
       </div>
     </div>
 
-
-
-    <h1 class="news-section text-center my-4">Today News</h1>
+    
     <div class="categorise"></div>
-    <div class="row">
-      <div class="col-md-3 ms-auto my-3">
+
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-5 my-3 ">
         <div class="search" id="news-search">
           <input type="text" class="search-bar" placeholder="Search for News" id="news-search-bar"/>
           <button type="submit" class="search-button" id="news-submit">
@@ -101,11 +102,17 @@
        
       </div>
     </div>
+ 
 
     <div class="container mt-5 mb-5" id="productCard">
     </div>
 
-   
+   <div class="pagination">
+     
+     <button class="page" id="prev">Previous Page</button>
+     <button class="page next" id="next">Next Page</button>
+
+   </div>
     
     
 

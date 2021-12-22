@@ -194,6 +194,28 @@
    
   }
 
+  .pagination{
+    display: flex;
+    margin: 10px 30px;
+    align-content: center;
+    justify-content: center;
+    color: black;
+  }
+  .page{
+    padding: 20px;
+  }
+
+
+  .current {
+    padding: 20px 15px;
+    border-radius: 30px;
+    border: 5px solid rgb(150, 105, 180);
+    font-size: 20px;
+    font-weight: 600;
+
+  }
+
+  
 
   
 

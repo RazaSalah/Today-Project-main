@@ -52,7 +52,7 @@ weather.fetchWeather("Dammam")
 
 let category =["General", "Business" , "Technology" , "Entertainment", "Health" , "Science","Sports"];
 const newsCategory = document.querySelector(".categorise");
-const APINews ="d4220aa65a524ac8b873436309990284";
+const APINews ="5a81862cb1fd44e9abafb1890b7e2ce9";
 const prev =document.querySelector("#prev");
 const next =document.querySelector("#next");
 

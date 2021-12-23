@@ -70,25 +70,14 @@
 
     <div class="container-fluid d-flex con-back">
       
-      <div class="text">
-        <h3>Today Quotes</h3>
-        <p class="quotes" id="quot"> 
-        <i class="fas fa-quote-left text-black"></i>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br> incididunt ut labore et dolore magna aliqua.<br>
-           Ut enim ad minim veniam, quis nostrud exercitation <br>ullamco laboris nisi ut aliquip ex ea commodo consequat.<br> 
-           Duis aute irure dolor in reprehenderit in voluptate velit <br>esse cillum dolore eu fugiat nulla pariatur. <br>
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-           <i class="fas fa-quote-right text-black"></i></p>
-           <p class="auther">Razan</p>
-        
-      </div>
       <div class="card" id="weatherCard">
-        <div class="search">
-          <input type="text" class="search-bar" placeholder="Search" />
-          <button type="submit" class="search-button">
+        <div class="search" id="weather-search">
+          <input type="text" class="search-bar" placeholder="Search for News" id="weather-search-bar"/>
+          <button type="submit" class="search-button" id="weather-submit">
             <i class="fas fa-search"></i>
           </button>
         </div>
+      
 
         <div class="weather loading">
           <h1 class="city">Weather in KSA</h1>
@@ -104,6 +93,19 @@
           <div class="humidity">Humidity: 60%</div>
           <div class="wind">Wind speed: 6.2 km/h</div>
         </div>
+<hr>
+        <div class="text">
+          <h3>Quote The Day</h3>
+          <p class="quotes" id="quot"> 
+          <i class="fas fa-quote-left text-black"></i>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br> incididunt ut labore et dolore magna aliqua.<br>
+             Ut enim ad minim veniam, quis nostrud exercitation <br>ullamco laboris nisi ut aliquip ex ea commodo consequat.<br> 
+             Duis aute irure dolor in reprehenderit in voluptate velit <br>esse cillum dolore eu fugiat nulla pariatur. <br>
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+             <i class="fas fa-quote-right text-black"></i></p>
+             <p class="auther">Razan</p>
+          
+        </div>
       </div>
     </div>
 
@@ -116,7 +118,14 @@
    <div class="pagination">
 
      <!-- <button class="page" id="prev">Previous Page</button> -->
-     <button class="page next" id="next">Load More..</button>
+     
+    <button class="page paginate" id="prev"> 
+      <i class="fas fa-chevron-left"></i>
+    </button>
+     <button class="page paginate" id="next"> 
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
 
    </div>
     

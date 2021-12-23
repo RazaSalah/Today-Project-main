@@ -89,7 +89,7 @@ justify-content:left;
   .con-back
   {
       
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
       background: #222;
       background-image: url('https://source.unsplash.com/1800x800/?landscape');
@@ -102,7 +102,7 @@ justify-content:left;
     padding: 2em;
     border-radius: 30px;
     width: 100%;
-    max-width: 420px;
+    /* max-width: 500px; */
     margin: 1em;
     
 
@@ -218,36 +218,45 @@ justify-content:left;
    border-radius: 20px;
    text-align: center;
    cursor:pointer;
+   
   }
   .categorise::-webkit-scrollbar{
     display: none;
   }
 
-  .categorise > div.active{
+  .active{
     background:rgb(167, 161, 189);
     color: white;
    
   }
 
-  .pagination{
-    display: flex;
-    margin: 10px 30px;
-    align-content: flex-end;
-    justify-content: flex-end;
-    color: black;
+ 
+  .paginate{
+
+    padding: 10px 15px;
+    border: none;
+    font-size: 20px;
+    background:rgb(167, 161, 189);
+    color: #fff;
+    margin: 0.7em;
+    border-radius: 50%;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  
   }
   .page{
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-
-  .page.next{
-    padding: 10px 15px;
-    border-radius: 15px;
-    border: none;
-    font-size: 20px;
-    background:rgb(202, 183, 214);
-    color: #fff;
-  
+  .pagination{
+    display: flex;
+    align-content: center;
+    justify-content: center;
   }
   
  

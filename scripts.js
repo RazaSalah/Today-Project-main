@@ -1,10 +1,12 @@
 let weather = {
   apiKey: "fa29929dddde0989e77c61dd28408d54",
   fetchWeather: function (city) {
-    fetch( "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&units=metric&appid=" +
-    this.apiKey)
+    fetch(
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+        city +
+        "&units=metric&appid=" +
+        this.apiKey
+    )
       .then((response) => response.json())
       .then((data) => this.displayWeather(data));
   },
@@ -23,85 +25,94 @@ let weather = {
       "Humidity: " + humidity + "%";
     document.querySelector(".wind").innerText =
       "Wind speed: " + speed + " km/h";
-      
 
     document.querySelector(".weather").classList.remove("loading");
     // document.body.style.backgroundImage =
     //   "url('https://source.unsplash.com/1600x900/?" + name + "')";
   },
-  search: function(){
-     this.fetchWeather( document.querySelector(".search-bar").value);
-  }
+  search: function () {
+    this.fetchWeather(document.querySelector("#weather-search-bar").value);
+  },
 };
 
-document.querySelector(".search-button").addEventListener("click" , function(){
+document
+  .querySelector("#weather-submit")
+  .addEventListener("click", function () {
     weather.search();
+  });
 
-})
+document
+  .querySelector("#weather-search-bar")
+  .addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+      weather.search();
+    }
+  });
 
-document.querySelector(".search-bar").addEventListener("keyup" , function(event){
-    
-    if(event.key =="Enter"){
-         weather.search();
-        }
-
-});
-
-weather.fetchWeather("Dammam")
+weather.fetchWeather("Dammam");
 
 const quotes = document.querySelector(".quotes");
 const auther = document.querySelector(".auther");
-var quotesUrl="https://api.quotable.io/random";
-
-let getQuote= () =>{
-  fetch(quotesUrl).then((data)=>data.json())
-  .then((item) =>{
-    quotes.innerHTML =`<i class="fas fa-quote-left text-black"></i>` + ` `+  item.content +` ` +` <i class="fas fa-quote-right text-black"></i>`;
-    auther.innerHTML = item.author;
-  });
-};
-window.addEventListener("load" , getQuote);
-
-
-let category =["General", "Business" , "Technology" , "Entertainment", "Health" , "Science","Sports"];
-const newsCategory = document.querySelector(".categorise");
-const APINews ="d1c7a9fd79da40bba56612495a19186f";
-const next =document.querySelector("#next");
-
+var quotesUrl = "https://api.quotable.io/random";
+let categoryArray = [
+  "General",
+  "Business",
+  "Technology",
+  "Entertainment",
+  "Health",
+  "Science",
+  "Sports",
+];
+let category;
 let page = 1;
+const newsCategory = document.querySelector(".categorise");
+const APINews = "5a81862cb1fd44e9abafb1890b7e2ce9";
+const url = `https://newsapi.org/v2/everything?q=all&from=2021-12&language=en&page=${page}&apiKey=${APINews}`
+const next = document.querySelector("#next");
+const prev = document.querySelector("#prev");
 
 
-for( let i =0 ; i < category.length ; i++){
+let getQuote = () => {
+  fetch(quotesUrl)
+    .then((data) => data.json())
+    .then((item) => {
+      quotes.innerHTML =
+        `<i class="fas fa-quote-left text-black"></i>` +
+        ` ` +
+        item.content +
+        ` ` +
+        ` <i class="fas fa-quote-right text-black"></i>`;
+      auther.innerHTML = item.author;
+    });
+};
+window.addEventListener("load", getQuote);
+
+for (let i = 0; i < categoryArray.length; i++) {
   let div = document.createElement("div");
-  div.innerText = category[i];
-  div.addEventListener("click" , function(){
-    // newsCategory.classList.remove("active");
-    // div.classList.add("active");
-     fetchCategoryNews(category[i]);
+  div.innerText = categoryArray[i];
+  div.addEventListener("click", function () {
+    
+    fetchCategoryNews(categoryArray[i]);
+    category = categoryArray[i];
   });
-  if(i == 0 ){
-    // div.classList.add("active");
-   fetchCategoryNews(category[i])
+  if (i == 0) {
+   
+    fetchCategoryNews(categoryArray[i]);
   }
   newsCategory.appendChild(div);
-
 }
 
-function fetchNews(category){
-  
-    fetch( `https://newsapi.org/v2/everything?q=${category}&from=2021-12&language=en&
-    sortBy=popularity&page=${page}&apiKey=${APINews}`)
-
-      .then((response) => response.json())
-      .then((data) => this.displayNews(data.articles));
+function fetchNews(url) {
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => this.displayNews(data.articles));
 }
 
-  
-  function displayNews(data) {
-    data.map((NewsValue , i) =>{
-    const productBox = document.querySelector("#productCard")
-    const card = document.createElement("div"); 
-  
+function displayNews(data) {
+  data.map((NewsValue, i) => {
+    const productBox = document.querySelector("#productCard");
+    const card = document.createElement("div");
+
     const productCard = `
     <div class="d-flex justify-content-center row mb-5">
     <div class="col-md-10 ">
@@ -119,62 +130,134 @@ function fetchNews(category){
         </div>
         </div>
         </div>`;
-         card.innerHTML+= productCard;
-         productBox.appendChild(card)
-  })
+    card.innerHTML += productCard;
+    productBox.appendChild(card);
+  });
 }
 
-async function fetchCategoryNews(category){
+async function fetchCategoryNews(category) {
+  productCard.innerHTML = ``;
 
-  
-  productCard.innerHTML = ``  
-  fetchNews(category)
-  // let url = `https://newsapi.org/v2/everything?q=${category}&from=2021-12-20&language=en&
-  // sortBy=popularity&page=${page}
-  // &pageSize=${pageSize}&apiKey=${APINews}`
-  
-  //   fetch(url).then((response) => response.json())
-  //   .then((data) => fetchNews(data.articles));
+  if (category == "Business") {
+    fetchNews(`https://newsapi.org/v2/everything?q=Business&from=2021-12&language=en&page=${page}&apiKey=${APINews}`);
+  } else if (category == "Technology") {
+    fetchNews(`https://newsapi.org/v2/everything?q=Technology&from=2021-12&language=en&page=${page}&apiKey=${APINews}`);
+  } else if (category == "Entertainment") {
+    fetchNews(`https://newsapi.org/v2/everything?q=Entertainment&from=2021-12&language=en&page=${page}&apiKey=${APINews}`);
+  } else if (category == "Health") {
+    fetchNews(`https://newsapi.org/v2/everything?q=Health&from=2021-12&language=en&page=${page}&apiKey=${APINews}`);
+  } else if (category == "Science") {
+    fetchNews(`https://newsapi.org/v2/everything?q=Science&from=2021-12&language=en&page=${page}&apiKey=${APINews}`);
+  } else if (category == "Sports") {
+    fetchNews(`https://newsapi.org/v2/everything?q=Sports&from=2021-12&language=en&page=${page}&apiKey=${APINews}`);
+  } else {
+    fetchNews(`https://newsapi.org/v2/everything?q=all&from=2021-12&language=en&page=${page}&apiKey=${APINews}`);
+  }
+ 
 }
 
-  
-function retrieve(){
+function retrieve() {
   const searchForm = document.querySelector("#news-search-bar").value;
-  
-  productCard.innerHTML = ``  
- let url = `https://newsapi.org/v2/everything?q=${searchForm}&from=2021-12-20&sortBy=popularity&apiKey=${APINews}`
-   fetch(url).then((response) => response.json())
-   .then((data) => displayNews(data.articles));
+
+  productCard.innerHTML = ``;
+  let url = `https://newsapi.org/v2/everything?q=${searchForm}&from=2021-12-20&sortBy=popularity&apiKey=${APINews}`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => displayNews(data.articles));
 }
-    
 
-document.querySelector("#news-submit").addEventListener("click" , function(){
+document.querySelector("#news-submit").addEventListener("click", function () {
   retrieve();
-
-})
-
-document.querySelector("#news-search-bar").addEventListener("keyup" , function(event){
-    
-    if(event.key =="Enter"){
-        retrieve();
-        }
-
 });
 
+document
+  .querySelector("#news-search-bar")
+  .addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+      retrieve();
+    }
+  });
 
-next.addEventListener("click", function(){
- page++;
- productCard.innerHTML = ``  
- fetchNews();
+next.addEventListener("click", function () {
+  if (page < 5) {
+    if (category == "Business") {
+      productCard.innerHTML = ``;
+      page++;
+      fetchCategoryNews(category);
+      
+    } else if (category == "Technology") {
+      productCard.innerHTML = ``;
+      page++;
+      fetchCategoryNews(category);
+      
+    } else if (category == "Entertainment") {
+      productCard.innerHTML = ``;
+      page++;
+      fetchCategoryNews(category);
+     
+    } else if (category == "Health") {
+      productCard.innerHTML = ``;
+      page++;
+      fetchCategoryNews(category);
+      
+    } else if (category == "Science") {
+      productCard.innerHTML = ``;
+      page++;
+      fetchCategoryNews(category);
+      
+    } else if (category == "Sports") {
+      productCard.innerHTML = ``;
+      page++;
+      fetchCategoryNews(category);
+      
+    }else {
+      productCard.innerHTML = ``;
+      page++;
+      fetchCategoryNews(category);
+     
+    }
+  } else if(page >= 5) {
+    page=5;
+  }
+});
 
-})
-
-
-// prev.addEventListener("click", function(){
-//   if(page!=1){
-//     page--;
-
-//    fetchNews();
-//   }
-  
-//  })
+prev.addEventListener("click", function(){
+  if (page > 1) {
+   if (category == "Business") {
+      productCard.innerHTML = ``;
+      page--;
+      fetchCategoryNews(category);
+      
+    } else if (category == "Technology") {
+      productCard.innerHTML = ``;
+      page--;
+      fetchCategoryNews(category);
+      
+    } else if (category == "Entertainment") {
+      productCard.innerHTML = ``;
+      page--;
+      fetchCategoryNews(category);
+     
+    } else if (category == "Health") {
+      productCard.innerHTML = ``;
+      page--;
+      fetchCategoryNews(category);
+      
+    } else if (category == "Science") {
+      productCard.innerHTML = ``;
+      page--;
+      fetchCategoryNews(category);
+      
+    } else if (category == "Sports") {
+      productCard.innerHTML = ``;
+      page--;
+      fetchCategoryNews(category);
+      
+    }  else {
+      productCard.innerHTML = ``;
+      page--;
+      fetchCategoryNews(category);
+     
+    } 
+  }
+});

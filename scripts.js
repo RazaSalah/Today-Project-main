@@ -94,6 +94,7 @@ for (let i = 0; i < categoryArray.length; i++) {
     
     fetchCategoryNews(categoryArray[i]);
     category = categoryArray[i];
+    page=1
   });
   if (i == 0) {
    
@@ -216,9 +217,8 @@ next.addEventListener("click", function () {
       fetchCategoryNews(category);
      
     }
-  } else if(page >= 5) {
-    page=5;
-  }
+  
+   }
 });
 
 prev.addEventListener("click", function(){

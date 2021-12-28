@@ -27,7 +27,8 @@ Today's Project is a website that shows you today's news around the world and ca
 - Home Page
 <img src="img/TodayNews.png">
 
-
+### The Project  Demo
+You can visit Dashboard website [link here](https://sharp-raman-79ba79.netlify.app)
 
 ## Future Features:
 - Make the website in a different language and allow the user to select the website language.

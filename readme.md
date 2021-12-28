@@ -23,6 +23,12 @@ Today's Project is a website that shows you today's news around the world and ca
 - Display Weather on Your Website Home Page.
 - Allow the User to Search of Weather for a Specific City
 
+## Project picture
+- Home Page
+<img src="img/TodayNews.png">
+
+
+
 ## Future Features:
 - Make the website in a different language and allow the user to select the website language.
 - Adding more filtering options to the site, such as selecting the news' country.
